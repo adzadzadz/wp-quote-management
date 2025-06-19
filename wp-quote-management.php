@@ -15,9 +15,9 @@ if (!defined('ABSPATH')) {
 
 require_once __DIR__ . '/includes/class-wqb-loader.php';
 
-function wqb_run_plugin()
+function wqm_run_plugin()
 {
-	$loader = new WQB_Loader();
+	$loader = new WQM_Loader();
 	$loader->run();
 }
-add_action('plugins_loaded', 'wqb_run_plugin');
+add_action('plugins_loaded', 'wqm_run_plugin');
