@@ -24,30 +24,30 @@ class WQM_Shortcode {
      */
     public function render_form() {
         if (isset($_GET['wqm_success'])) {
-            echo '<div class="wqm-success">' . esc_html__('Quote submitted successfully!', 'wp-quote-bonza') . '</div>';
+            echo '<div class="wqm-success">' . esc_html__('Quote submitted successfully!', 'wp-quote-management') . '</div>';
         }
         ob_start();
         ?>
         <form method="post" class="wqm-quote-form">
             <?php wp_nonce_field('wqm_quote_submit', 'wqm_nonce'); ?>
             <p>
-                <label><?php _e('Name', 'wp-quote-bonza'); ?></label><br>
+                <label><?php _e('Name', 'wp-quote-management'); ?></label><br>
                 <input type="text" name="wqm_name" required />
             </p>
             <p>
-                <label><?php _e('Email', 'wp-quote-bonza'); ?></label><br>
+                <label><?php _e('Email', 'wp-quote-management'); ?></label><br>
                 <input type="email" name="wqm_email" required />
             </p>
             <p>
-                <label><?php _e('Service Type', 'wp-quote-bonza'); ?></label><br>
+                <label><?php _e('Service Type', 'wp-quote-management'); ?></label><br>
                 <input type="text" name="wqm_service_type" required />
             </p>
             <p>
-                <label><?php _e('Notes', 'wp-quote-bonza'); ?></label><br>
+                <label><?php _e('Notes', 'wp-quote-management'); ?></label><br>
                 <textarea name="wqm_notes"></textarea>
             </p>
             <p>
-                <input type="submit" name="wqm_submit" value="<?php esc_attr_e('Submit Quote', 'wp-quote-bonza'); ?>" />
+                <input type="submit" name="wqm_submit" value="<?php esc_attr_e('Submit Quote', 'wp-quote-management'); ?>" />
             </p>
         </form>
         <?php

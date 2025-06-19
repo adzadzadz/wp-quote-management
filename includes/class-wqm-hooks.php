@@ -18,7 +18,7 @@ class WQM_Hooks {
 
     public function notify_admin($id, $data) {
         $admin_email = get_option('admin_email');
-        $subject = __('New Quote Submitted', 'wp-quote-bonza');
+        $subject = __('New Quote Submitted', 'wp-quote-management');
         $message = sprintf(
             "%s\nEmail: %s\nService Type: %s\nNotes: %s",
             $data['name'],

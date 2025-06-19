@@ -17,7 +17,7 @@ class WQM_Storage {
 
     public function __construct() {
         add_action('init', [$this, 'register_cpt']);
-        register_activation_hook(WP_PLUGIN_DIR . '/wp-quote-bonza/wp-quote-bonza.php', [$this, 'maybe_create_table']);
+        register_activation_hook(WP_PLUGIN_DIR . '/wp-quote-management/wp-quote-management.php', [$this, 'maybe_create_table']);
     }
 
     /**
