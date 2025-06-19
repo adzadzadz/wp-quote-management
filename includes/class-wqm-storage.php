@@ -17,7 +17,6 @@ class WQM_Storage {
 
     public function __construct() {
         add_action('init', [$this, 'register_cpt']);
-        register_activation_hook(WP_PLUGIN_DIR . '/wp-quote-management/wp-quote-management.php', [$this, 'maybe_create_table']);
     }
 
     /**
@@ -36,7 +35,7 @@ class WQM_Storage {
     /**
      * Creates the quotes table if it doesn't exist
      */
-    public function maybe_create_table() {
+    public static function maybe_create_table() {
         global $wpdb;
         $table = $wpdb->prefix . self::TABLE;
         $charset_collate = $wpdb->get_charset_collate();
