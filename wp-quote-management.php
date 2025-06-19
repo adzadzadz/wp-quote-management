@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
-require_once __DIR__ . '/includes/class-wqb-loader.php';
+require_once __DIR__ . '/includes/class-wqm-loader.php';
 
 function wqm_run_plugin()
 {
