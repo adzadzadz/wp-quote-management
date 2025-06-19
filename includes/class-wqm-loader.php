@@ -8,6 +8,8 @@ if (!defined('ABSPATH')) {
 
 class WQM_Loader {
     public function run() {
+        require_once __DIR__ . '/class-wqm-shortcode.php';
 
+        new WQM_Shortcode();
     }
 }
