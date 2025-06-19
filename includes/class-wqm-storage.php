@@ -12,8 +12,8 @@ if (!defined('ABSPATH')) {
  * This class manages the storage of quotes either in a custom database table or as a custom post type.
  */
 class WQM_Storage {
-    const TABLE = 'WQM_quotes';
-    const CPT = 'WQM_quote';
+    const TABLE = 'wqm_quotes';
+    const CPT = 'wqm_quote';
 
     public function __construct() {
         add_action('init', [$this, 'register_cpt']);
