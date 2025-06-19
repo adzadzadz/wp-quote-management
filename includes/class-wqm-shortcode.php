@@ -9,6 +9,7 @@ if (!defined('ABSPATH')) {
 class WQM_Shortcode {
     public function __construct() {
         add_shortcode('bonza_quote_form', [$this, 'render_form']);
+        add_action('init', [$this, 'handle_form_submission']);
     }
 
     public function render_form() {
@@ -43,4 +44,25 @@ class WQM_Shortcode {
         return ob_get_clean();
     }
 
+    /**
+     * Handles the form submission and stores the quote
+     */
+    public function handle_form_submission() {
+        if (!isset($_POST['wqm_submit'])) {
+            return;
+        }
+        if (!isset($_POST['wqm_nonce']) || !wp_verify_nonce($_POST['wqm_nonce'], 'wqm_quote_submit')) {
+            return;
+        }
+        $data = [
+            'name' => sanitize_text_field($_POST['wqm_name']),
+            'email' => sanitize_email($_POST['wqm_email']),
+            'service_type' => sanitize_text_field($_POST['wqm_service_type']),
+            'notes' => sanitize_textarea_field($_POST['wqm_notes']),
+        ];
+        $id = WQM_Storage::insert_quote($data);
+        do_action('wqm_quote_submitted', $id, $data);
+        wp_redirect(add_query_arg('wqm_success', 1, wp_get_referer()));
+        exit;
+    }
 }
