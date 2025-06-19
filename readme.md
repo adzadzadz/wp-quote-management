@@ -33,7 +33,7 @@ A WordPress plugin that provides a frontend quote form and admin management for 
 2. Tests are located in the `tests/` directory.
 
 ## Extensibility
-- Action: `WQM_quote_submitted` fires after a quote is submitted.
+- Action: `wqm_quote_submitted` fires after a quote is submitted.
 
 ## Security
 - All inputs are sanitized and validated.
