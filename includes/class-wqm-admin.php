@@ -59,9 +59,9 @@ class WQM_Admin {
                         <td><?php echo esc_html(ucfirst($quote['status'])); ?></td>
                         <td>
                             <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
-                                <input type="hidden" name="action" value="WQM_update_status" />
+                                <input type="hidden" name="action" value="wqm_update_status" />
                                 <input type="hidden" name="id" value="<?php echo esc_attr($quote['id']); ?>" />
-                                <?php wp_nonce_field('WQM_update_status_' . $quote['id'], 'WQM_status_nonce'); ?>
+                                <?php wp_nonce_field('wqm_update_status_' . $quote['id'], 'WQM_status_nonce'); ?>
                                 <select name="status">
                                     <option value="pending" <?php selected($quote['status'], 'pending'); ?>><?php _e('Pending', 'wp-quote-management'); ?></option>
                                     <option value="approved" <?php selected($quote['status'], 'approved'); ?>><?php _e('Approved', 'wp-quote-management'); ?></option>
@@ -87,7 +87,7 @@ class WQM_Admin {
         }
         $id = intval($_POST['id']);
         $status = sanitize_text_field($_POST['status']);
-        if (!isset($_POST['WQM_status_nonce']) || !wp_verify_nonce($_POST['WQM_status_nonce'], 'WQM_update_status_' . $id)) {
+        if (!isset($_POST['WQM_status_nonce']) || !wp_verify_nonce($_POST['WQM_status_nonce'], 'wqm_update_status_' . $id)) {
             wp_die(__('Invalid nonce', 'wp-quote-management'));
         }
         WQM_Storage::update_status($id, $status);
