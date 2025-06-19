@@ -1,0 +1,1 @@
+{"version":1,"defects":{"WQM_Storage_Test::test_insert_and_get_quote_db":3},"times":{"WQM_Storage_Test::test_insert_and_get_quote_db":0.012,"WQM_Storage_Test::test_insert_and_get_quote_cpt":0.004}}
