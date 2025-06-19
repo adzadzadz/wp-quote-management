@@ -6,12 +6,22 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Class WQM_Shortcode
+ *
+ * This class handles the shortcode for displaying the quote form and processing submissions.
+ */
 class WQM_Shortcode {
     public function __construct() {
         add_shortcode('bonza_quote_form', [$this, 'render_form']);
         add_action('init', [$this, 'handle_form_submission']);
     }
 
+    /**
+     * Renders the quote form
+     *
+     * @return string HTML output of the form
+     */
     public function render_form() {
         if (isset($_GET['wqm_success'])) {
             echo '<div class="wqm-success">' . esc_html__('Quote submitted successfully!', 'wp-quote-bonza') . '</div>';

@@ -6,6 +6,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Class WQM_Hooks
+ *
+ * This class handles hooks for the Bonza Quote plugin, including admin notifications.
+ */
 class WQM_Hooks {
     public function __construct() {
         add_action('wqm_quote_submitted', [$this, 'notify_admin'], 10, 2);

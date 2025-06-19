@@ -6,6 +6,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Class WQM_Loader
+ *
+ * This class initializes the plugin by loading necessary components.
+ */
 class WQM_Loader {
     public function run() {
         require_once __DIR__ . '/class-wqm-shortcode.php';
